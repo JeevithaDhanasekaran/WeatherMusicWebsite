@@ -1,0 +1,242 @@
+
+
+
+// import React, { useEffect, useState } from 'react';
+// import { Button , Nav , Navbar , Container, Form, Row, Col , Table ,Image} from 'react-bootstrap';
+// import 'bootstrap/dist/css/bootstrap.min.css';
+// import axios from 'axios';
+// import './App.css';
+// import { IoMdCloudy,IoMdRainy,IoIosSunny ,FaSnowflak } from "react-icons/io";
+
+// function App() {
+
+//   const api = {
+//     // key: "4d21dbfadd49076f3bd7e3b7a17c54ac",
+//     base: "https://api.openweathermap.org/data/2.5/",
+//     };
+
+//   const [weatherData, setWeatherData] = useState([]);
+//   const [searchText, setSearchText] = useState('');
+
+//   const fetchData = async () => { 
+//     try { 
+//       const fetchedData = []; 
+//       for (let i = 0; i < locations.length; i++) {  
+//         const cityName = locations[i].name;
+//         // const response = await axios.get(`${api.base}weather?q=${cityName}&appid=${api.key}&units=metric`);
+//         // fetchedData.push(response.data);
+//         if (cityName.toLowerCase() === searchText.toLowerCase()) {
+//           const response = await axios.get(`${api.base}weather?q=${cityName}&appid=${api.key}&units=metric`);
+//           fetchedData.push(response.data);
+//         } 
+//       } 
+//       const filteredData = fetchedData.filter((data) =>
+//       data.name.toLowerCase().includes(searchText.toLowerCase())
+//     );
+//       setWeatherData(filteredData); 
+//     } 
+//     catch (error) { 
+//       console.error(error); 
+//     } 
+//   }; 
+
+//   useEffect(() => { fetchData(); });
+
+//   const alertClicked = () => {
+//     alert('The search button is clicked !!');
+//   };  
+     
+  
+//   const locations = [
+//     { name: "Coimbatore"},
+//     { name: "Chennai" },                                 
+//     { name: "Bangalore"},
+//     { name: "Salem"},
+//     { name: "Namakkal"},
+//   ];
+
+//   const climate = [
+//       {weather_main: 'Rain',h1_text: 'It might be a Rainy day !!', low_text:'Hurry , Get your umbrella!',img_src: 'https://media.giphy.com/media/E2d2tsgz7iHo4/giphy.gif'},
+//       {weather_main: 'Sunny',h1_text: "It's Sunny Today!", low_text:"Don't forget to wear your sunglasses!",img_src: 'https://media.giphy.com/media/Xz9ypThCqqyUo/giphy.gif'},
+//       {weather_main: 'Clouds',h1_text: 'A Partly Cloudy Day !', low_text:'Relaxx !! Sit back and Enjoy !',img_src: 'https://media.giphy.com/media/3o6wrfjLCwd2f3G5wI/giphy.gif'},
+//       {weather_main: 'Snow',h1_text: 'Woo ! Winter Day.', low_text:'Go for a Walk ,Enjoy the Season !',img_src: 'https://media.giphy.com/media/YQFS7XgY5n5saiLxCr/giphy.gif'},
+//   ] ;
+
+//   const getClimate = (weather_main) => {
+//     const climateObj = climate.find(c => c.weather_main === weather_main);
+//     return climateObj || {};
+//   }
+
+//   return (
+//     <div>
+//       <div className='fluid text-white mx-5'  style={{ minHeight: '100%' }} >
+//         <header className="App-header">
+//           <Navbar bg="dark" data-bs-theme="dark" expand="lg" className="bg-body-tertiary">
+//             <Container>
+//               <Navbar.Brand href="#">WeatherMusic</Navbar.Brand>
+//               <Navbar.Toggle aria-controls="basic-navbar-nav" />
+//               <Navbar.Collapse id="basic-navbar-nav">
+
+//                 <Nav className="me-auto">
+//                   <Nav.Link href="#Topcities">Top Cities</Nav.Link>
+//                   <Nav.Link href="#SmallCities">Small Cities</Nav.Link>
+//                 </Nav>
+
+//                 <Form inline>
+//                   <Row>
+//                     <Col xs="auto">
+//                       <Form.Control
+//                         type="text"
+//                         placeholder="Search Locations"
+//                         className="mr-sm-2"
+//                         value={searchText}
+//                         onChange={e => setSearchText(e.target.value)}
+//                       />
+//                     </Col>
+//                     <Col xs="auto">
+//                       <Button action onClick={alertClicked} type="submit">Search</Button>
+//                     </Col>
+//                   </Row>
+//                 </Form>
+//               </Navbar.Collapse>
+//             </Container>
+//           </Navbar>
+//         </header>
+//         <Container class='container-well'>
+//           <Row>
+//             <Col>        
+//               <Table striped bordered hover variant="dark" className='py-4 my-5'>
+//                 <thead>
+//                   <tr>
+//                     <th>City</th>
+//                     <th>Latitude</th>
+//                     <th>Longitude</th>
+//                     <th>Humidity</th>
+//                   </tr>
+//                 </thead>
+//                 <tbody>
+//                   {weatherData.map((data, index) => (
+//                     <tr key={index}>
+//                       <td>{data.name}</td>
+//                       <td>{data.coord.lat}</td>
+//                       <td>{data.coord.lon}</td>
+//                       <
+
+
+
+    // {/* <Row>
+    //   <Col>
+    //   <Container className="text-center text-dark mt-5">
+    //     <Image src="https://media.giphy.com/media/Xz9ypThCqqyUo/giphy.gif" fluid />
+    //     <h1 className="mt-3">It's Sunny Today!</h1>
+    //     <h3>Don't forget to wear your sunglasses!</h3>
+    //   </Container>
+    //   </Col>
+    //   <Col>
+    //     <Container className="text-center text-dark mt-5 pb-1">
+    //       <Image src="https://media.giphy.com/media/E2d2tsgz7iHo4/giphy.gif" fluid />
+    //       <h1 className="mt-3">It might be a Rainy day !!</h1>
+    //       <p>Hurry , Get your umbrella!</p>
+    //     </Container>
+    //   </Col>
+    // </Row>
+    // <Row>
+    //   <Col>
+    //     <Container className="text-center text-dark mt-5 pb-1">
+    //       <Image src="https://media.giphy.com/media/3o6wrfjLCwd2f3G5wI/giphy.gif" fluid />
+    //       <h1 className="mt-3">A Partly Cloudy Day !</h1>
+    //       <p>Relaxx !! Sit back and Enjoy !</p>
+    //     </Container>
+    //   </Col>
+    //   <Col>
+    //     <Container className="text-center text-dark mt-5 pb-1">
+    //       <Image src="https://media.giphy.com/media/YQFS7XgY5n5saiLxCr/giphy.gif" fluid />
+    //       <h1 className="mt-3">Woo ! Winter Day.</h1>
+    //       <p>Go for a Walk ,Enjoy the Season !</p>
+    //     </Container>
+    //   </Col>
+    // </Row> */}
+    
+    // {/* <Container className='Box-Container my-4'>
+    //   <Row className=' RowColmn text-center text-dark'>
+        
+    //       <Col className=' city-info text-center'>
+            
+    //         <h1><IoMdCloudy  size={'10rem'}/> Coimbatore </h1>
+    //       </Col>
+          
+    //       <Col className='check-border text-dark text-center'> 
+    //       <h1>A Partly Cloudy Day !</h1>
+    //       <p>Relaxx !! Sit back and Enjoy !</p>
+    //     </Col>
+        
+    //   </Row>
+    //   <Row className='center mt-5 py-4' >
+    //     <Col className='image-disp'>
+    //     <Image src="https://media.giphy.com/media/3o6wrfjLCwd2f3G5wI/giphy.gif" style={{width: '20rem'}} fluid />
+    //     </Col>
+    //     <Col className='text-dark my-4 '>
+    //         <p>
+    //           <h4>Weather: Clouds</h4>
+    //           <h6>Latitude: 11</h6>
+    //           <h6>Longitude : 76.9667</h6>
+    //         </p>
+    //       </Col>
+        
+    //   </Row>
+    // </Container>
+    // <Container className='Box-Container my-4'>
+    //   <Row className=' RowColmn text-center text-dark'>
+        
+    //       <Col className=' city-info text-center'>
+            
+    //         <h1><IoIosSunny  size={'10rem'}/> Chennai </h1>
+    //       </Col>
+          
+    //       <Col className='check-border text-dark text-center'> 
+    //       <h1>It's Sunny Today!</h1>
+    //       <p>Don't forget to get your umbrella !</p>
+    //     </Col>
+        
+    //   </Row>
+    //   <Row className='center mt-5 py-4' >
+    //     <Col className='image-disp'>
+    //     <Image src="https://media.giphy.com/media/Xz9ypThCqqyUo/giphy.gif" style={{width: '20rem'}} fluid />
+    //     </Col>
+    //     <Col className='text-dark my-4 '>
+    //         <p>
+    //           <h4>Weather: Sunny</h4>
+    //           <h6>Latitude: 78</h6>
+    //           <h6>Longitude : 48</h6>
+    //         </p>
+    //       </Col>
+        
+    //   </Row>
+    // </Container>
+    // <Container className='Box-Container my-4'>
+    //   <Row className=' RowColmn text-center text-dark'>
+        
+    //       <Col className=' city-info text-center'>
+            
+    //         <h1><IoMdRainy  size={'10rem'}/> Bangalore </h1>
+    //       </Col>
+    //       <Col className='check-border text-dark text-center'> 
+    //       <h1>It might be a Rainy day !!</h1>
+    //       <p>Hurry , Get your umbrella!</p>
+    //     </Col>
+        
+    //   </Row>
+    //   <Row className='center mt-5 py-4' >
+    //     <Col className='image-disp'>
+    //     <Image src="https://media.giphy.com/media/E2d2tsgz7iHo4/giphy.gif " style={{width: '20rem'}} fluid />
+    //     </Col>
+    //     <Col className='text-dark my-4 '>
+    //         <p>
+    //           <h4>Weather: Rainy</h4>
+    //           <h6>Latitude: 497</h6>
+    //           <h6>Longitude : 46</h6>
+    //         </p>
+    //       </Col>
+        
+    //   </Row>
+    // </Container> */}
